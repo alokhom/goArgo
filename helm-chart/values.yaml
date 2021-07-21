@@ -4,7 +4,7 @@
 replicaCount: 1
 
 image:
-  repository: mdhont/go-app 
+  repository:  alokhom/go-k8s:0.1.0
   tag: 0.1.0
   pullPolicy: IfNotPresent
 
