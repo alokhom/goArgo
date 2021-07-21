@@ -21,13 +21,13 @@ Lets understand each section.
 * Run **$docker push alokhom/go-k8s:0.1.0**
 * Now your image is in a image registry to be used in a package manager like helm. 
 
-** Helm **
+**Helm**
 * Install helm client from https://helm.sh/docs/intro/install/ for your Operating System. 
 * Ensure you get correct results for command **  $kubectl get pods -n default**
 * Ensure **$helm ls** shows no results for this app at this stage. 
 
 
-**Plan your helm chart (refer folder helm-chart) **
+**Plan your helm chart (refer folder helm-chart)**
 * Read the scripts to get a better understanding. Especially the **values.yaml** and **templates/Deployment.yaml** files. 
 * Get and idea of helm https://youtu.be/-ykwb1d0DXU.
 * release the chart. **helm install go-project ./helm-chart/**
@@ -37,7 +37,7 @@ Lets understand each section.
 * default go-k8s-deployment-65b988f95-dnfdx 1/1 Running   0 3m52s
 
 
-** Upgrade your helm release **
+**Upgrade your helm release**
 *  **helm upgrade go-project ./helm-chart/**
 
 
