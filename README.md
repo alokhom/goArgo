@@ -14,9 +14,10 @@ Lets understand each section.
 
 **Develop/build/push the app container using docker cli.**
 * **git clone https://github.com/alokhom/newtestapp.git** 
-* Go to the app-code folder. Its a Go App. 
+* Go to the app-code folder. Its a Go App. run **$go build -tags netgo -o http-sample**
 * Read the scripts to get a better understanding, especially the **Dockerfile** file. 
 * Ensure **$docker login** is SUCCESSFUL from your cli.  
+* Change directory to its parent folder. 
 * Run **$docker build -t your-docker-login-ID/go-k8s:0.1.0 .**
 * Run **$docker push alokhom/go-k8s:0.1.0**
 * Now your image is in a image registry to be used in a package manager like helm. 
