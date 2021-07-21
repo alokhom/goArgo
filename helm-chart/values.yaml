@@ -4,7 +4,7 @@
 replicaCount: 1
 
 image:
-  repository:  alokhom/go-k8s:0.1.0
+  repository:  alokhom/go-k8s
   tag: 0.1.0
   pullPolicy: IfNotPresent
 
