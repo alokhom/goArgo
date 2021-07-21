@@ -48,5 +48,5 @@ I hope you will enjoy helm. I shall add more automation with ArgoCD.
 
 **[Alok Hom]**
 
-* ref: https://github.com/nodeshift/helm , https://docs.bitnami.com/tutorials/deploy-go-application-kubernetes-helm/ *
+* ref: https://github.com/nodeshift/helm , https://docs.bitnami.com/tutorials/deploy-go-application-kubernetes-helm/ , kind for k8s deployment https://kind.sigs.k8s.io/docs/user/quick-start/*
 ***
