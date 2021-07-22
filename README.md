@@ -68,6 +68,7 @@ I hope you will enjoy helm.
 * create a test-argo-app namespace. **$kubectl create namespace test-argo-app**
 * Go to ArgoCD portal and click new-app. In that add the relevant values for app's helm-chart location.
 * path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
+* Click create. You can also see the Application kubernetes yaml for the same. 
 
 **[Alok Hom]**
 
