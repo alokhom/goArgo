@@ -1,4 +1,4 @@
-# newtestapp with Helm and Go App.
+# New Go App with Helm and ArgoCD.
 
 Thanks for installing helm v3,docker and kubectl clients.
 Once you have connected to your k8s cluster and are able to get good responses to **$kubectl cluster-info** you are all good to go. Below are the steps.
@@ -26,18 +26,19 @@ Lets understand each section.
 
 **Develop/build/push the app container using docker cli.**
 * **git clone https://github.com/alokhom/newtestapp.git** 
-* Go to the app-code folder. Its a Go App. run **$go build -tags netgo -o http-sample**
+* Go to the app-code folder. Its a Go App. 
 * Read the scripts to get a better understanding, especially the **Dockerfile** file. 
 * Ensure **$docker login** is SUCCESSFUL from your cli.  
 * Change directory to its parent folder. 
-* Run **$docker build -t your-docker-login-ID/go-k8s:0.1.0 .** (It copies in the ./app-code/ folder for docker building.)
-* Run **$docker push alokhom/go-k8s:0.1.0**
+* Run **$docker build -t alokhom/go-k8s:0.1.1 .** (It copies in the ./app-code/ folder for docker building.)
+* Run **$docker push alokhom/go-k8s:0.1.1**
 * Now your image is in a image registry to be used in a package manager like helm. 
 
 **Helm**
 * Install helm client from https://helm.sh/docs/intro/install/ for your Operating System. 
 * Ensure you get correct results for command **  $kubectl get pods -n default**
 * Ensure **$helm ls** shows no results for this app at this stage. 
+* If you want to delete a helm chart, you can use $helm delete release-name that $helm ls shows
 
 
 **Plan your helm chart (refer folder helm-chart)**
@@ -58,8 +59,18 @@ Thus your app is now in kubernetes
 I hope you will enjoy helm. 
 
 **ArgoCD**
-* **$git clone https://github.com/argoproj/argo-helm.git**
-* 
+* check the files in the argo-cd1 folder. Values and the chart file. 
+* I have used the reference https://www.arthurkoziel.com/setting-up-argocd-with-helm/ to configure the chart and values.yaml. Ensure you have the right versions mentioned.
+* Run **$helm install argo-cd charts/argo-cd1/**
+* wait for few mins till pods are up and running and then run **$kubectl port-forward svc/argo-cd-argocd-server 8081:443 &**
+* Open the ArgoCD portal on desktop http://localhost:8081/
+* Get admin password **$kubectl edit secret/argocd-initial-admin-secret** and copy password and base62 decode it from https://www.base64decode.org/ and login to portal as admin user and the password decoded.
+* Copy the URL from **$kubectl cluster-info** https://127.0.0.1:59360 to use it to make a new App on ArgoCD.
+* create a test-argo-app namespace. **$kubectl create namespace test-argo-app**
+* Go to ArgoCD portal and click new-app. In that add the relevant values for app's helm-chart location.
+* path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
+* Click create. You can also see the Application kubernetes yaml for the same. 
+* check the pods and service in the **test-argo-app** namespace.
 
 **[Alok Hom]**
 
