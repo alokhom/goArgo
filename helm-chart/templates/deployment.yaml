@@ -31,14 +31,14 @@ spec:
         ports:
           - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
-          periodSeconds: 10
-          initialDelaySeconds: 30
-          httpGet:
-            path: /
-            port: {{ .Values.service.internalPort }}
+          tcpSocket:
+            port: 3000
+          periodSeconds: 20
+          initialDelaySeconds: 15
         readinessProbe:
-          httpGet:
-            path: /
-            port: {{ .Values.service.internalPort }}
+          tcpSocket:
+            port: 3000
+          periodSeconds: 10
+          initialDelaySeconds: 5
         resources:
 {{ toYaml .Values.resources | indent 12 }}
