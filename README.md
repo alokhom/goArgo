@@ -74,5 +74,5 @@ I hope you will enjoy helm.
 
 **[Alok Hom]**
 
-* ref: https://github.com/nodeshift/helm , https://docs.bitnami.com/tutorials/deploy-go-application-kubernetes-helm/ , kind for k8s deployment https://kind.sigs.k8s.io/docs/user/quick-start/*
+* ref: https://github.com/nodeshift/helm , https://docs.bitnami.com/tutorials/deploy-go-application-kubernetes-helm/ , https://developer.ibm.com/depmodels/cloud/tutorials/convert-sample-web-app-to-helmchart/, kind for k8s deployment https://kind.sigs.k8s.io/docs/user/quick-start/*
 ***
