@@ -38,6 +38,7 @@ Lets understand each section.
 * Install helm client from https://helm.sh/docs/intro/install/ for your Operating System. 
 * Ensure you get correct results for command **  $kubectl get pods -n default**
 * Ensure **$helm ls** shows no results for this app at this stage. 
+* If you want to delete a helm chart, you can use $helm delete release-name that $helm ls shows
 
 
 **Plan your helm chart (refer folder helm-chart)**
