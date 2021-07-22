@@ -1,4 +1,4 @@
-# newtestapp with Helm and Go App.
+# New Go App with Helm and ArgoCD.
 
 Thanks for installing helm v3,docker and kubectl clients.
 Once you have connected to your k8s cluster and are able to get good responses to **$kubectl cluster-info** you are all good to go. Below are the steps.
