@@ -60,7 +60,7 @@ I hope you will enjoy helm.
 **ArgoCD**
 * check the files in the argo-cd1 folder. Values and the chart file. 
 * I have used the reference https://www.arthurkoziel.com/setting-up-argocd-with-helm/ to configure the chart and values.yaml. Ensure you have the right versions mentioned.
-* Run **$helm install argo-cd charts/argo-cd/**
+* Run **$helm install argo-cd charts/argo-cd1/**
 * wait for few mins till pods are up and running and then run **$kubectl port-forward svc/argo-cd-argocd-server 8081:443 &**
 * Open the ArgoCD portal on desktop http://localhost:8081/
 * Get admin password **$kubectl edit secret/argocd-initial-admin-secret** and copy password and base62 decode it from https://www.base64decode.org/ and login to portal as admin user and the password decoded.
