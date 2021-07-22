@@ -1,10 +1,19 @@
 # newtestapp with Helm and Go App.
 
 Thanks for installing helm v3,docker and kubectl clients.
-Once you have connected to your k8s cluster and are able to get good responses to **$kubectl cluster-info** you are all good to go.
+Once you have connected to your k8s cluster and are able to get good responses to **$kubectl cluster-info** you are all good to go. Below are the steps.
 
 
 **how to make a helm chart for an app ?**
+
+Pre-requisites:
+* CLI: Cygwin installation https://cygwin.com/install.html and open Cygwin console with admin rights. OR use powershell with admin rights. 
+* Do the Go instalation: https://golang.org/doc/install
+* Do the DockerDesktop for Windows installation : https://hub.docker.com/editions/community/docker-ce-desktop-windows
+* DO the KIND k8s installation using on docker desktop : lightweight k8s. Low hastle and low CPU fan noise. Put the exe on the windows path as kind.exe. (e.g. system32)
+* **$ curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.11.1/kind-windows-amd64 Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe**. 
+* kubectl on windows **$curl -LO https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe** move it to windows PATH.
+* RUN **$kubectl cluster-info** and output should show the right URLs.
 
 Steps:
 * Develop/build/push the app container using docker cli.
