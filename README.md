@@ -6,14 +6,17 @@ Once you have connected to your k8s cluster and are able to get good responses t
 
 **how to make a helm chart for an app ?**
 
-Pre-requisites:
-* CLI: Cygwin installation https://cygwin.com/install.html and open Cygwin console with admin rights. OR use powershell with admin rights. 
-* Do the Go instalation: https://golang.org/doc/install
-* Do the DockerDesktop for Windows installation : https://hub.docker.com/editions/community/docker-ce-desktop-windows
-* DO the KIND k8s installation using on docker desktop : lightweight k8s. Low hastle and low CPU fan noise. Put the exe on the windows path as kind.exe. (e.g. system32)
+Pre-requisites for a Windows 10 machine:
+* CLI: Cygwin installation https://cygwin.com/install.html and open Cygwin console with admin rights. (OR) use powershell with admin rights. cygwin is far better CLI.
+* Install Go on Windows: https://golang.org/doc/install
+* Download/Install DockerDesktop for Windows : https://hub.docker.com/editions/community/docker-ce-desktop-windows and Run the DockerDesktop in admin mode from startmenu.
+* Install the KIND k8s installation using on DockerDesktop : lightweight k8s. And copy the exe on the windows path as kind.exe. (e.g. system32)
 * **$ curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.11.1/kind-windows-amd64 Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe**. 
-* kubectl on windows **$curl -LO https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe** move it to windows PATH.
-* RUN **$kubectl cluster-info** and output should show the right URLs.
+* Install kubectl on windows **$curl -LO https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe** move it to windows PATH. (e.g. system32)
+* RUN **$kubectl cluster-info** on cygwin or powershell CLI and output should show the right URLs.
+* <em>Kubernetes master is running at https://127.0.0.1:59360</em>
+* <em>CoreDNS is running at https://127.0.0.1:59360/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy</em>
+
 
 Steps:
 * Develop/build/push the app container using docker cli.
@@ -43,8 +46,8 @@ Lets understand each section.
 * release the chart. **helm install go-project ./helm-chart/**
 * check the pods
 * **  $ kubectl get pods -n default **
-*  NAMESPACE NAME READY   STATUS RESTARTS   AGE
-* default go-k8s-deployment-65b988f95-dnfdx 1/1 Running   0 3m52s
+* <em>NAMESPACE NAME READY   STATUS RESTARTS   AGE</em>
+* <em>default go-k8s-deployment-65b988f95-dnfdx 1/1 Running   0 3m52s</em>
 
 
 **Upgrade your helm release**
@@ -52,8 +55,11 @@ Lets understand each section.
 
 
 Thus your app is now in kubernetes
+I hope you will enjoy helm. 
 
-I hope you will enjoy helm. I shall add more automation with ArgoCD.
+**ArgoCD**
+* **$git clone https://github.com/argoproj/argo-helm.git**
+* 
 
 **[Alok Hom]**
 
