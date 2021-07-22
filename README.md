@@ -65,7 +65,9 @@ I hope you will enjoy helm.
 * Open the ArgoCD portal on desktop http://localhost:8081/
 * Get admin password **$kubectl edit secret/argocd-initial-admin-secret** and copy password and base62 decode it from https://www.base64decode.org/ and login to portal as admin user and the password decoded.
 * Copy the URL from **$kubectl cluster-info** https://127.0.0.1:59360 to use it to make a new App on ArgoCD.
-* 
+* create a test-argo-app namespace. **$kubectl create namespace test-argo-app**
+* Go to ArgoCD portal and click new-app. In that add the relevant values for app's helm-chart location.
+* path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
 
 **[Alok Hom]**
 
