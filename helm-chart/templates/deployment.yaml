@@ -32,7 +32,7 @@ spec:
           - containerPort: {{ .Values.service.internalPort }}
         livenessProbe:
           httpGet:
-            path: /ping
+            path: /
             port: {{ .Values.service.internalPort }}
         readinessProbe:
           httpGet:
