@@ -41,7 +41,7 @@ Lets understand each section.
 * If you want to delete a helm chart, you can use $helm delete release-name that $helm ls shows
 
 
-**Plan your helm chart (refer folder helm-chart)**
+**Plan your app helm chart (refer folder helm-chart)**
 * Read the scripts to get a better understanding. Especially the **values.yaml** and **templates/Deployment.yaml** files. 
 * Get and idea of helm https://youtu.be/-ykwb1d0DXU.
 * release the chart. **helm install go-project ./helm-chart/**
@@ -57,15 +57,17 @@ Lets understand each section.
 
 Thus your app is now in kubernetes
 I hope you will enjoy helm. 
+Lets go for gitOps
 
-**ArgoCD**
+**Deploy ArgoCD with helm **
 * check the files in the argo-cd1 folder. Values and the chart file. 
 * I have used the reference https://www.arthurkoziel.com/setting-up-argocd-with-helm/ to configure the chart and values.yaml. Ensure you have the right versions mentioned.
 * Run **$helm install argo-cd charts/argo-cd1/**
 * wait for few mins till pods are up and running and then run **$kubectl port-forward svc/argo-cd-argocd-server 8081:443 &**
 * Open the ArgoCD portal on desktop http://localhost:8081/
 * Get admin password **$kubectl edit secret/argocd-initial-admin-secret** and copy password and base62 decode it from https://www.base64decode.org/ and login to portal as admin user and the password decoded.
-* Copy the URL from **$kubectl cluster-info** https://127.0.0.1:59360 to use it to make a new App on ArgoCD.
+
+**Use ArgoCD for pointing to a app helm chart**
 * create a test-argo-app namespace. **$kubectl create namespace test-argo-app**
 * Go to ArgoCD portal and click new-app. In that add the relevant values for app's helm-chart location.
 * path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
