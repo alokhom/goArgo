@@ -44,7 +44,8 @@ Lets understand each section.
 
 
 **Plan your app helm chart (refer folder helm-chart)**
-* Read the scripts to get a better understanding. Especially the **values.yaml** and **templates/Deployment.yaml** files. 
+* Read the scripts to get a better understanding. Use ref: https://github.com/argoproj/argo-helm/tree/master/charts/argo-cd
+* Especially the **values.yaml** and **templates/Deployment.yaml** files. 
 * Get and idea of helm https://youtu.be/-ykwb1d0DXU.
 * release the chart. **helm install go-project ./helm-chart/**
 * check the pods **$ kubectl get pods -n default**
