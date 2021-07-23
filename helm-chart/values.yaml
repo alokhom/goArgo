@@ -11,7 +11,7 @@ image:
   pullPolicy: IfNotPresent
 service:
   name: go-app
-  type: NodePort
+  type: ClusterIp
   externalPort: 3000
   internalPort: 3000
 
