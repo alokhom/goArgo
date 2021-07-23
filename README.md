@@ -29,6 +29,7 @@ Lets understand each section.
 * **git clone https://github.com/alokhom/newtestapp.git** 
 * Go to the app-code folder. Its a Go App. 
 * Read the scripts to get a better understanding, especially the **Dockerfile** file. 
+* make the modules if not made. **go mod init hello** and make the sum file if not made **go mod tidy**
 * Ensure **$docker login** is SUCCESSFUL from your cli.  
 * Change directory to its parent folder. 
 * Run **$docker build -t alokhom/go-k8s:0.1.1 .** (It copies in the ./app-code/ folder for docker building.)
