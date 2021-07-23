@@ -7,10 +7,10 @@ Once you have connected to your k8s cluster and are able to get good responses t
 **how to make a helm chart for an app ?**
 
 Pre-requisites for a Windows 10 machine:
-* CLI: Cygwin installation https://cygwin.com/install.html and open Cygwin console with admin rights. (OR) use powershell with admin rights. cygwin is far better CLI.
-* Install Go on Windows: https://golang.org/doc/install
-* Download/Install DockerDesktop for Windows : https://hub.docker.com/editions/community/docker-ce-desktop-windows and Run the DockerDesktop in admin mode from startmenu.
-* Install the KIND k8s installation using on DockerDesktop : lightweight k8s. And copy the exe on the windows path as kind.exe. (e.g. system32)
+* Unix CLI: Cygwin installation https://cygwin.com/install.html and open Cygwin console with admin rights.
+* Go Lang: Install Go on Windows: https://golang.org/doc/install
+* DockerDesktop for Windows : Download/Install https://hub.docker.com/editions/community/docker-ce-desktop-windows and Run the DockerDesktop in admin mode from startmenu.
+* KIND k8s on DockerDesktop : lightweight k8s. And copy the exe on the windows path as kind.exe. (e.g. system32)
 * **$ curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.11.1/kind-windows-amd64 Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe**. 
 * Install kubectl on windows **$curl -LO https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe** move it to windows PATH. (e.g. system32)
 * RUN **$kubectl cluster-info** on cygwin or powershell CLI and output should show the right URLs.
@@ -21,6 +21,7 @@ Pre-requisites for a Windows 10 machine:
 Steps:
 * Develop/build/push the app container using docker cli.
 * Write your helm scripts and helm release the same.
+* Apply gitops with ArgoCD
 
 Lets understand each section.
 
@@ -45,8 +46,7 @@ Lets understand each section.
 * Read the scripts to get a better understanding. Especially the **values.yaml** and **templates/Deployment.yaml** files. 
 * Get and idea of helm https://youtu.be/-ykwb1d0DXU.
 * release the chart. **helm install go-project ./helm-chart/**
-* check the pods
-* **  $ kubectl get pods -n default **
+* check the pods **$ kubectl get pods -n default**
 * <em>NAMESPACE NAME READY   STATUS RESTARTS   AGE</em>
 * <em>default go-k8s-deployment-65b988f95-dnfdx 1/1 Running   0 3m52s</em>
 
@@ -73,7 +73,7 @@ Lets go for gitOps
 * path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
 * Click create. You can also see the Application kubernetes yaml for the same. 
 * check the pods and service in the **test-argo-app** namespace.
-* port-forward the service ** kubectl port-forward svc/goapp-go-k8s 8090:3000 -n test-argo-app &**
+* port-forward the service **kubectl port-forward svc/goapp-go-k8s 8090:3000 -n test-argo-app &**
 
 **[Alok Hom]**
 
