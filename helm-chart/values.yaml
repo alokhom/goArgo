@@ -7,7 +7,7 @@ restartPolicy: Never
 
 image:
   repository:  alokhom/go-k8s
-  tag: 0.1.1
+  tag: 0.1.2
   pullPolicy: IfNotPresent
 service:
   name: go-app
