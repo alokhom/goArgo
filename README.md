@@ -73,6 +73,7 @@ Lets go for gitOps
 * path: helm-chart, repo: https://github.com/alokhom/newtestapp.git, namespace: test-argo-app, server: https://kubernetes.default.svc
 * Click create. You can also see the Application kubernetes yaml for the same. 
 * check the pods and service in the **test-argo-app** namespace.
+* port-forward the service ** kubectl port-forward svc/goapp-go-k8s 8090:3000 -n test-argo-app &**
 
 **[Alok Hom]**
 
