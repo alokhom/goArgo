@@ -33,7 +33,7 @@ spec:
         livenessProbe:
           tcpSocket:
             port: 3000
-          periodSeconds: 20
+          periodSeconds: 21
           initialDelaySeconds: 15
         readinessProbe:
           tcpSocket:
