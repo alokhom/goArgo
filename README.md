@@ -47,7 +47,7 @@ Lets understand each section.
 * Read the scripts to get a better understanding. Use ref: https://github.com/argoproj/argo-helm/tree/master/charts/argo-cd
 * Especially the **values.yaml** and **templates/Deployment.yaml** files. 
 * Get and idea of helm https://youtu.be/-ykwb1d0DXU.
-* release the chart. **helm install go-project ./helm-chart/**
+* release the chart. **$helm install go-project ./helm-chart/**
 * check the pods **$ kubectl get pods -n default**
 * <em>NAMESPACE NAME READY   STATUS RESTARTS   AGE</em>
 * <em>default go-k8s-deployment-65b988f95-dnfdx 1/1 Running   0 3m52s</em>
